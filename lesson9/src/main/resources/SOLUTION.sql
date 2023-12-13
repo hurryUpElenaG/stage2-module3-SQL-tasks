@@ -1,12 +1,3 @@
---## Lesson 9 tasks:
-
--- 1) Select all Students from Table Students having average mark more than 8
-SELECT  STUDENT.*   FROM MARK JOIN STUDENT ON MARK.STUDENT_ID = STUDENT.ID GROUP BY STUDENT_ID HAVING AVG(MARK)> 7;
-
--- 2) Select students (id and name) who have minimum mark more than 7
-SELECT STUDENT.id, STUDENT.NAME FROM STUDENT JOIN MARK ON STUDENT.ID = MARK.STUDENT_ID GROUP BY MARK.STUDENT_ID HAVING MIN(MARK.MARK) >7;
-
--- 3) Select all students(id and name) who paid more than 2 times during 2019
-SELECT STUDENT.id, STUDENT.NAME FROM STUDENT JOIN PAYMENT ON STUDENT.ID = PAYMENT.STUDENT_ID GROUP BY PAYMENT.STUDENT_ID HAVING COUNT(PAYMENT.STUDENT_ID) > 2 AND YEAR(PAYMENT.PAYMENT_DATE) = 2019;
-
-
+SELECT * FROM STUDENT WHERE id IN (SELECT student_id FROM mark GROUP BY student_id HAVING avg(mark)>8);
+SELECT s.id, s.name FROM student AS s JOIN mark AS m ON s.id=m.student_id GROUP BY (s.id, s.name) HAVING min(m.mark)>7;
+SELECT s.id, s.name FROM student AS s JOIN payment AS p ON s.id=p.student_id WHERE p.payment_date BETWEEN '2019-01-01' AND '2019-12-31' GROUP BY (s.id, s.name) HAVING COUNT(p.amount) >2;

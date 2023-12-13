@@ -1,7 +1,38 @@
---CREATE DATABASE University;
-
-CREATE TABLE Student (id BIGINT PRIMARY KEY, name VARCHAR, birthday DATE, groupNumber INT);
-CREATE TABLE Subject (id BIGINT PRIMARY KEY, name VARCHAR, description VARCHAR, grade INT);
-CREATE TABLE PaymentType (id BIGINT PRIMARY KEY, name VARCHAR);
-CREATE TABLE Payment (id BIGINT PRIMARY KEY, type_id BIGINT, amount DECIMAL, student_id BIGINT, payment_date DATETIME, FOREIGN KEY(type_id) REFERENCES PaymentType(id), FOREIGN KEY(student_id) REFERENCES Student(id));
-CREATE TABLE Mark (id BIGINT PRIMARY KEY, student_id BIGINT, subject_id BIGINT, mark INT, FOREIGN KEY(student_id) REFERENCES Student(id), FOREIGN KEY(subject_id) REFERENCES Subject(id));
+CREATE TABLE Student
+(
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    birthday DATE NOT NULL,
+    groupnumber INT NOT NULL
+);
+CREATE TABLE Subject
+(
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(250),
+description VARCHAR(255),
+grade INT NOT NULL
+);
+CREATE TABLE PaymentType
+(
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100)
+);
+CREATE TABLE Payment
+(
+ id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ type_id BIGINT NOT NULL,
+ amount DECIMAL NOT NULL,
+ student_id BIGINT NOT NULL,
+  payment_date DATETIME NOT NULL,
+ foreign key (type_id) references PaymentType(id),
+ foreign key (student_id) references Student(id)
+);
+CREATE TABLE Mark
+(
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  student_id BIGINT NOT NULL,
+  foreign key (student_id) references Student(id),
+  subject_id BIGINT NOT NULL,
+  foreign key (subject_id) references Subject (id),
+  mark INT NOT NULL
+);
