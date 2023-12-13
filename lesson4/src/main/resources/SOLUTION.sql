@@ -1,13 +1,14 @@
 -- Lesson 4 tasks:
 
 -- 1. Select all students with all the available fields
-SELECT * FROM Student;
+SELECT * FROM STUDENT ;
 
 -- 2. Select 50 students
-SELECT * FROM Student LIMIT 50;
+SELECT * FROM STUDENT LIMIT 50 ;
 
 -- 3. Select only students’ name
-SELECT name FROM Student;
+SELECT NAME FROM STUDENT;
 
 -- 4. Select unique values of Amount from Payment table
-SELECT DISTINCT amount FROM Payment;
+SELECT DISTINCT  AMOUNT FROM PAYMENT;
+

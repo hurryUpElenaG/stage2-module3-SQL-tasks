@@ -1,29 +1,15 @@
 -- ## Lesson 6 tasks:
 
 -- 1) Select Payments with “MONTHLY” type;
-SELECT pt.* FROM Payment AS p
-JOIN PaymentType AS pt
-ON pt.id = p.type_id
-WHERE pt.name = 'MONTHLY';
+SELECT PAYMENT .* FROM PAYMENT LEFT JOIN PAYMENTTYPE ON PAYMENT.TYPE_ID = PAYMENTTYPE.ID WHERE NAME = 'MONTHLY';
 
 -- 2) Select all marks by Art
-SELECT m.* FROM Mark AS m
-JOIN Subject AS s
-ON s.id = m.subject_id
-WHERE s.name = 'Art';
+SELECT MARK.* FROM MARK LEFT JOIN SUBJECT ON MARK.SUBJECT_ID = SUBJECT.ID WHERE NAME = 'Art';
 
 -- 3) Select all students who have “WEEKLY” payments;
-SELECT st.* FROM Student as st
-JOIN Payment AS p
-ON p.student_id = st.id
-JOIN PaymentType AS pt
-ON pt.id = p.type_id
-WHERE pt.name = 'WEEKLY';
+SELECT STUDENT.* FROM STUDENT LEFT JOIN PAYMENT ON STUDENT.ID = PAYMENT.STUDENT_ID LEFT JOIN PAYMENTTYPE ON PAYMENT.TYPE_ID = PAYMENTTYPE.ID WHERE PAYMENTTYPE.NAME = 'WEEKLY';
 
 -- 4) Select all students who has marks by Math.
-SELECT st.* FROM Student as st
-JOIN Mark AS m
-ON st.id = m.student_id
-JOIN Subject AS sb
-ON sb.id = m.subject_id
-WHERE sb.name = 'Math';
+SELECT STUDENT.* FROM STUDENT LEFT JOIN MARK ON STUDENT.ID = MARK.STUDENT_ID LEFT JOIN SUBJECT ON MARK.SUBJECT_ID = SUBJECT.ID WHERE SUBJECT.NAME = 'Math';
+
+
