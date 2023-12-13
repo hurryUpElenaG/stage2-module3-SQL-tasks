@@ -4,7 +4,7 @@
 SELECT * FROM Student;
 
 -- 2. Select 50 students
-SELECT * FROM Student Limit 50;
+SELECT * FROM Student LIMIT 50;
 
 -- 3. Select only students’ name
 SELECT name FROM Student;

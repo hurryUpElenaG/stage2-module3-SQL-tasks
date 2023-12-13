@@ -11,14 +11,20 @@
    ALTER TABLE Mark ALTER COLUMN subject_id SET NOT NULL;
 
 -- 3) Change table ‘Subject’
-   ALTER TABLE Subject ADD CONSTRAINT grade_range CHECK (grade >= 1 AND grade <= 5);
+   ALTER TABLE Subject ADD CONSTRAINT grade_rate CHECK (grade >= 1 AND grade <= 5);
 
 -- 4) Change table ‘PaymentType’
-    ALTER TABLE PaymentType ADD CONSTRAINT unique_name UNIQUE(name);
+   ALTER TABLE PaymentType ADD CONSTRAINT unique_name UNIQUE(name);
 
 -- 5) Change table ‘Payment’
-    ALTER TABLE Payment ALTER COLUMN type_id SET NOT NULL;
+   ALTER TABLE Payment ALTER COLUMN type_id SET NOT NULL;
 
-    ALTER TABLE Payment ALTER COLUMN amount SET NOT NULL;
+   ALTER TABLE Payment ALTER COLUMN amount SET NOT NULL;
 
-    ALTER TABLE Payment ALTER COLUMN payment_date SET NOT NULL;
+   ALTER TABLE Payment ALTER COLUMN payment_date SET NOT NULL;
+
+
+--   SELECT *
+--   FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+--   WHERE TABLE_NAME = 'Subject';
+--   DESCRIBE Student;
