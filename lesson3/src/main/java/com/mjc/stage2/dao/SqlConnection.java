@@ -32,7 +32,7 @@ public class SqlConnection {
                 .addScript("./PAYMENT.sql")
                 .addScript("./SUBJECT.sql")
                 .addScript("./MARK.sql")
-//              .addScript("./SOLUTION.sql")
+                .addScript("./SOLUTION.sql")
                 .build();
     }
 }
