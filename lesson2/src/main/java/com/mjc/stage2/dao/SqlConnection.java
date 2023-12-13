@@ -27,7 +27,6 @@ public class SqlConnection {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("./CREATE.sql")
-                //   .addScript("./SOLUTION.sql")
                 .build();
     }
 }
