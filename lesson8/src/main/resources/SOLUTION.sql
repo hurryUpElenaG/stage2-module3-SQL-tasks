@@ -1,19 +1,15 @@
 -- ## Lesson 8 tasks:
 
 -- 1) Select the youngest student's birthday;
-SELECT MIN(DATEDIFF('YEAR', birthday, CURRENT_DATE)) FROM Student;
+SELECT BIRTHDAY  FROM STUDENT ORDER BY BIRTHDAY DESC LIMIT 1;
 
 -- 2) Find the earliest made payment's date;
-SELECT MIN(payment_date) FROM Payment;
+SELECT PAYMENT_DATE FROM PAYMENT ORDER BY PAYMENT_DATE ASC LIMIT 1;
 
 -- 3) Find average mark by Math;
-SELECT AVG(mark) FROM Mark AS m
-JOIN Subject AS s
-ON m.subject_id = s.id
-WHERE s.name = 'Math';
+SELECT AVG(MARK) FROM MARK LEFT JOIN SUBJECT ON MARK.SUBJECT_ID = SUBJECT.ID WHERE SUBJECT.NAME = 'Math';
 
 -- 4) Find min amount of payment for payment type “WEEKLY”.
-SELECT MIN(amount) FROM Payment AS p
-JOIN PaymentType AS pt
-ON p.type_id = pt.id
-WHERE pt.name = 'WEEKLY';
+SELECT MIN(AMOUNT) FROM PAYMENT LEFT JOIN PAYMENTTYPE ON PAYMENT.TYPE_ID = PAYMENTTYPE.ID WHERE PAYMENTTYPE.NAME = 'WEEKLY';
+
+
